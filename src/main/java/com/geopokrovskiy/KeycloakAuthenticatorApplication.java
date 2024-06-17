@@ -1,4 +1,4 @@
-package com.geopokrovskiy.keycloakAuthenticator;
+package com.geopokrovskiy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

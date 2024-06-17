@@ -28,9 +28,10 @@ dependencies {
 	implementation "org.flywaydb:flyway-core:$flywayDbVersion"
 	implementation "com.google.code.findbugs:jsr305:$googleFindBugsVersion"
 
-	//JWT
-	implementation "io.jsonwebtoken:jjwt:$jsonWebTokenVersion"
-	implementation "javax.xml.bind:jaxb-api:$jaxbApiVersion"
+	//OAUTH2
+	implementation "org.springframework.boot:spring-boot-starter-oauth2-client:$oauth2_0starterVersion"
+	implementation "org.keycloak:keycloak-admin-client:$keyCloakAdminClientVersion"
+
 
 	//LOMBOK
 	implementation "org.projectlombok:lombok:$lombokVersion"
@@ -44,9 +45,6 @@ dependencies {
 	testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 	testImplementation "org.testcontainers:postgresql:$testContainersPostgresVersion"
 	testImplementation "org.testcontainers:r2dbc:$testContainersR2DBC"
-
-
-
 
 	//MAPSTRUCT
 	implementation "org.mapstruct:mapstruct:$mapStructVersion"

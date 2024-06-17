@@ -16,15 +16,21 @@ spring:
     user: ${spring.r2dbc.username}
     password: ${spring.r2dbc.password}
 
-security:
-  password:
-    encoder:
-      secret: FZK2DZ82odqS13e8aENggaMbb_fAkl-nJL4AEVBX43g
-      iterations: 64
-      keylength: 256
-  secret: b5f59337a612a2a7dc07328f3e7d1a04722967c7f06df20a499a7d3f91ff2a7e
-  expiration: 3600
-  issuer: geopokrovskiy
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8180/realms/myrealm
+        registration:
+          keycloak:
+            client-id: my-client
+            client-secret: oG4nqOAEvbllPJ4XOYK06KID3m1wiW8u
+keycloak:
+  server-url: http://localhost:8180
+  realm: myrealm
+  username: admin
+  password: adminpass
 
 logging:
   level:

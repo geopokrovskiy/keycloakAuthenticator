@@ -13,8 +13,7 @@ services:
       - keycloak-network
   keycloak:
     image: quay.io/keycloak/keycloak:latest
-    command:
-      - start-dev
+    command: start-dev --import-realm
     ports:
       - "8180:8080"
     environment:
@@ -26,10 +25,13 @@ services:
       DB_PASSWORD: keycloakpass
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: adminpass
+      KEYCLOAK_IMPORT: /opt/jboss/keycloak/imports/realm-export.json
     networks:
       - keycloak-network
     depends_on:
       - postgres
+    volumes:
+      - ./imports:/opt/jboss/keycloak/imports
 
 networks:
   keycloak-network:
