@@ -13,7 +13,9 @@ services:
       - keycloak-network
   keycloak:
     image: quay.io/keycloak/keycloak:latest
-    command: start-dev --import-realm
+    command:
+      - start-dev
+      - --import-realm
     ports:
       - "8180:8080"
     environment:
@@ -31,7 +33,7 @@ services:
     depends_on:
       - postgres
     volumes:
-      - ./imports:/opt/jboss/keycloak/imports
+      - ./config/keycloak/import:/opt/keycloak/data/import
 
 networks:
   keycloak-network:
