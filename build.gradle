@@ -39,6 +39,8 @@ dependencies {
 	testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 	testImplementation "com.github.dasniko:testcontainers-keycloak:$keycloakTestContainersVersion"
 	testImplementation 'org.testcontainers:junit-jupiter'
+	testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.5.0'
+
 
 	//MAPSTRUCT
 	implementation "org.mapstruct:mapstruct:$mapStructVersion"
@@ -46,6 +48,6 @@ dependencies {
 
 }
 
-test{
+tasks.named('test') {
 	useJUnitPlatform()
 }

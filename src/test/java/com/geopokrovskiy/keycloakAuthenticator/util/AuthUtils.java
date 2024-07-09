@@ -2,6 +2,7 @@ package com.geopokrovskiy.keycloakAuthenticator.util;
 
 import com.geopokrovskiy.dto.auth.UserRegisterRequestDTO;
 import com.geopokrovskiy.dto.auth.UserRegisterResponseDTO;
+import com.geopokrovskiy.dto.info.UserInfoResponseDTO;
 import com.geopokrovskiy.dto.login.UserLoginRequestDTO;
 
 public class AuthUtils {
@@ -63,13 +64,31 @@ public class AuthUtils {
         return new UserLoginRequestDTO()
                 .toBuilder()
                 .username("username")
-                .password("Password$")
+                .password("Password$!")
+                .build();
+    }
+
+    public static UserLoginRequestDTO userLoginRequestDTOWithIncorrectPassword() {
+        return new UserLoginRequestDTO()
+                .toBuilder()
+                .username("username")
+                .password("Password$$$123d")
                 .build();
     }
 
     public static UserLoginRequestDTO userLoginRequestDTOWithNullPassword() {
         return new UserLoginRequestDTO()
                 .toBuilder()
+                .username("username")
+                .build();
+    }
+
+    public static UserInfoResponseDTO userInfoResponseDTO() {
+        return new UserInfoResponseDTO()
+                .toBuilder()
+                .email("test@valid.com")
+                .firstName("firstName")
+                .lastName("lastName")
                 .username("username")
                 .build();
     }

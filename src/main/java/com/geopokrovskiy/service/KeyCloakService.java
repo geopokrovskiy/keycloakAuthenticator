@@ -5,6 +5,7 @@ import com.geopokrovskiy.dto.auth.UserRegisterResponseDTO;
 import com.geopokrovskiy.dto.info.UserInfoResponseDTO;
 import com.geopokrovskiy.dto.login.UserLoginRequestDTO;
 import com.geopokrovskiy.dto.login.UserLoginResponseDTO;
+import jakarta.ws.rs.NotAuthorizedException;
 import jakarta.ws.rs.core.Response;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -132,6 +133,8 @@ public class KeyCloakService {
 
             return Mono.just(userLoginResponseDTO);
 
+        } catch (NotAuthorizedException exception) {
+            return Mono.error(new RuntimeException("Incorrect username or password"));
         } catch (Throwable throwable) {
             return Mono.error(new RuntimeException(throwable));
         }
